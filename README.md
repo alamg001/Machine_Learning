@@ -1,4 +1,4 @@
-## Machine Learning
+# Machine Learning Avanzado
 
 # 1. Redes Neuronales
 
