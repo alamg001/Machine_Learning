@@ -586,8 +586,7 @@ Se puede modelar $\mathbb{P}(Y=c\mid X=x)$ con cualquier método de regresión q
 - Gradient boosting
 - Redes neuronales
 - Estimación de densidad por kernels, etc.
-
-- 
+ 
 
 
 
