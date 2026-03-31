@@ -447,7 +447,127 @@ g(x) = \arg\max_{j \in \mathcal{P}} \mathbb{P}(Y = j \mid X = x).
 $$
 
 
+# Clasificación Ingenua de Bayes (Naive Bayes)
 
+## 1. Estimación de probabilidades a posteriori
+
+Por el teorema de Bayes:
+
+$$
+\mathbb{P}(Y = c \mid X = x) = \frac{f(x \mid Y = c) \, \mathbb{P}(Y = c)}{\sum_{s \in \mathcal{P}} f(x \mid Y = s) \, \mathbb{P}(Y = s)}.
+$$
+
+Las probabilidades marginales se estiman como:
+
+$$
+\hat{\mathbb{P}}(Y = s) = \frac{1}{n} \sum_{i=1}^{n} I(y_i = s).
+$$
+
+---
+
+## 2. Supuesto de independencia condicional
+
+Para evitar la maldición de la dimensionalidad, se supone que, dado $Y=s$, las componentes de $X$ son independientes:
+
+$$
+f(x \mid Y = s) = \prod_{j=1}^{d} f(x_j \mid Y = s).
+$$
+
+---
+
+### 2.1 Caso continuo: modelo normal
+
+Si $X_j \mid Y = s \sim \mathcal{N}(\mu_{js}, \sigma_{js}^2)$:
+
+$$
+f(x \mid Y = s) = \prod_{j=1}^{d} \frac{1}{\sqrt{2\pi \sigma_{js}^2}} \exp\left(-\frac{(x_j - \mu_{js})^2}{2\sigma_{js}^2}\right).
+$$
+
+Estimadores por máxima verosimilitud:
+
+$$
+\hat{\mu}_{js} = \frac{1}{|J_s|} \sum_{k \in J_s} x_{jk}, \qquad
+\hat{\sigma}_{js}^2 = \frac{1}{|J_s|} \sum_{k \in J_s} (x_{jk} - \hat{\mu}_{js})^2,
+$$
+
+donde $J_s = \{i : y_i = s\}$.
+
+---
+
+### 2.2 Caso discreto: variables categóricas
+
+Se modela con una distribución multinomial:
+
+$$
+\mathbb{P}(X_j = a \mid Y = c) = \theta_{j,c,a}.
+$$
+
+---
+
+## 3. Estabilidad numérica: uso de logaritmos
+
+Para evitar subdesbordamiento, se trabaja con log‑verosimilitud:
+
+$$
+g(x) = \arg\max_{c \in \mathcal{P}} \left( \sum_{j=1}^{d} \log f(x_j \mid Y = c) + \log \hat{\mathbb{P}}(Y = c) \right).
+$$
+
+
+
+# Métodos Alternativos de Clasificación
+
+## 1. Enfoque plug‑in
+
+Una vez estimada la probabilidad a posteriori $\hat{\mathbb{P}}(Y=c\mid X=x)$, el clasificador plug‑in es:
+
+$$
+g(x) = \arg\max_{c \in \mathcal{P}} \hat{\mathbb{P}}(Y = c \mid X = x).
+$$
+
+Para el caso binario, se clasifica en la clase 1 si $\hat{\mathbb{P}}(Y=1\mid X=x) > 1/2$.
+
+---
+
+## 2. Regresión logística
+
+Observamos que $\mathbb{P}(Y=c\mid X=x) = \mathbb{E}[I(Y=c)\mid X=x]$. Para el caso binario ($Y\in\{0,1\}$):
+
+$$
+\mathbb{P}(Y = 1 \mid X = x) = \frac{1}{1 + e^{-(\beta_0 + \beta^\top x)}}.
+$$
+
+La verosimilitud para una muestra i.i.d. $\{(x_i,y_i)\}_{i=1}^n$ es:
+
+$$
+L(\beta) = \prod_{i=1}^{n} \left( \frac{1}{1 + e^{-(\beta_0 + \beta^\top x_i)}} \right)^{y_i} \left( 1 - \frac{1}{1 + e^{-(\beta_0 + \beta^\top x_i)}} \right)^{1-y_i}.
+$$
+
+Se maximiza mediante el logaritmo y métodos numéricos (Newton‑Raphson).
+
+---
+
+## 3. Generalización a múltiples clases
+
+Para $K>2$, se usa la regresión logística multinomial:
+
+$$
+\mathbb{P}(Y = c \mid X = x) = \frac{\exp(\beta_c^\top x)}{\sum_{k=1}^K \exp(\beta_k^\top x)}, \quad c=1,\dots,K,
+$$
+
+con una restricción de identificabilidad (por ejemplo, $\beta_K = 0$).
+
+---
+
+## 4. Otros modelos
+
+Se puede modelar $\mathbb{P}(Y=c\mid X=x)$ con cualquier método de regresión que devuelva valores en $[0,1]$:
+- $k$‑vecinos más próximos (k‑NN)
+- Árboles de decisión
+- Gradient boosting
+- Redes neuronales
+- Estimación de densidad por kernels, etc.
+
+- 
 
 
 
