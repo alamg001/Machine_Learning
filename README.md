@@ -1,4 +1,24 @@
-# Machine Learning Avanzado
+<div align="center">
+
+<img src="https://www.uni.edu.pe/images/logo_uni.png" width="75"/>
+
+# MACHINE LEARNING - TOPICOS AVANZADOS  
+
+## Redes Neuronales - Arboles de Clasificacion - Métodos de Clasificacion Alternativo
+
+**Doctorando:** Antonio Lam García  
+**Profesor:** Dr. Helder Rojas
+
+Escuela Profesional de Ingeniería Estadística  
+Facultad de Ingeniería Económica, Estadística y Ciencias Sociales  
+**Universidad Nacional de Ingeniería — Lima, Perú**
+
+---
+
+*Notas del curso: Apuntes de clase y desarllo de ejercicios del curso.*
+
+</div>
+
 
 # 1. Redes Neuronales
 
