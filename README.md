@@ -408,7 +408,8 @@ $$
 
 # 3. Clasificacion
 
-# Fundamentos de Clasificación: Del Clasificador de Bayes al Naive Bayes y Regresión Logística
+## Fundamentos de Clasificación: 
+### Del Clasificador de Bayes al Naive Bayes y Regresión Logística
 
 ## 1. Introducción y Definición del Problema
 
