@@ -1,6 +1,6 @@
 ## Machine Learning
 
-##1. Redes Neuronales
+#1. Redes Neuronales
 
 ## Veamos un Problema Simple (Regresión Lineal)
 
@@ -170,12 +170,12 @@ Las redes neuronales se usan para:
 
 
 
-2. Arboles
+# **2. Arboles**
 
 
-# 🌳 Árboles de Regresión (CART)
+# Árboles de Regresión (CART)
 
-## 📌 Definición básica
+## Definición básica
 
 $$
 f: x_i \mapsto y_i
@@ -195,9 +195,8 @@ $$
 
 Los árboles de regresión (Regression Trees, RT) son una metodología **no paramétrica** que permite obtener modelos altamente interpretables mediante particiones recursivas del espacio de covariables.
 
----
 
-## 🌲 Estructura de un Árbol Binario
+## Estructura de un Árbol Binario
 
 Un árbol divide el espacio $\mathbb{R}^d$ en regiones mediante reglas binarias.
 
@@ -207,9 +206,9 @@ Ejemplo conceptual:
 - Nodos internos → decisiones
 - Hojas → predicciones
 
----
 
-## 📊 Ejemplo de Regresión
+
+## Ejemplo de Regresión
 
 **Objetivo:** Predecir ingreso en función de:
 
@@ -222,9 +221,9 @@ Reglas:
 - Si Edad > 18 y Estudios ≤ 10 → ingreso ≈ 1500  
 - Si Edad > 18 y Estudios > 10 → ingreso ≈ 3000  
 
----
 
-## 🧠 Definición Formal
+
+## Definición Formal
 
 Un árbol de decisión construye una partición del espacio en regiones disjuntas:
 
@@ -241,20 +240,20 @@ $$
 $$
 
 
-👉 Es decir, se usa el **promedio de la región**.
+Es decir, se usa el **promedio de la región**.
 
----
 
-## ⚙️ Construcción del Árbol
+
+## Construcción del Árbol
 
 Se realiza en dos etapas:
 
 1. Crecer un árbol grande
 2. Podar el árbol (evitar overfitting)
 
----
 
-## 📐 Formulación Matemática
+
+## Formulación Matemática
 
 Dataset:
 
@@ -276,7 +275,7 @@ $$
 
 ---
 
-## 📉 Riesgo
+## Riesgo
 
 ### Riesgo esperado
 
@@ -293,7 +292,7 @@ $$
 
 ---
 
-## 🌍 Partición del espacio
+## Partición del espacio
 
 El modelo final:
 
@@ -318,7 +317,7 @@ $$
 
 ---
 
-## ✂️ Criterio de División (Split)
+## Criterio de División (Split)
 
 Para un nodo $s$:
 
@@ -331,7 +330,7 @@ $$
 
 ---
 
-## 🔻 División del nodo
+## División del nodo
 
 Se divide en:
 
@@ -345,18 +344,19 @@ $$
 SSE(s) - (SSE(S_L) + SSE(S_R))
 $$
 
----
 
-## 🎯 Mejor split
+
+## Mejor split
+
 
 $$
-(j^*, t^*) =
+(j^{(k)}, t^{(k)}) =
 \arg\max_{j,t} \Delta(j,t)
 $$
 
----
 
-## 🧮 Algoritmo CART
+
+## Algoritmo CART
 
 1. **Inicialización**
    $$
@@ -374,9 +374,9 @@ $$
    - $\Delta < \epsilon$
    - profundidad > $d_{max}$
 
----
 
-## 🌿 Predicción final
+
+## Predicción final
 
 En hojas:
 
@@ -393,9 +393,9 @@ $$
 1_{\{\mathbf{x} \in R_k\}}
 $$
 
----
 
-## 📌 Notas importantes
+
+## Notas importantes
 
 - Modelo no paramétrico
 - Alta interpretabilidad
@@ -404,13 +404,8 @@ $$
   - Random Forest
   - Gradient Boosting
 
----
 
-## 🚀 Recomendación para GitHub
 
-Si alguna fórmula no renderiza:
-
-👉 Usa doble signo:
 
 
 
