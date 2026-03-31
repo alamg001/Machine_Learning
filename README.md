@@ -1,6 +1,6 @@
 ## Machine Learning
 
-#1. Redes Neuronales
+# 1. Redes Neuronales
 
 ## Veamos un Problema Simple (Regresión Lineal)
 
